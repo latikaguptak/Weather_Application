@@ -36,6 +36,8 @@
     <script>
       const apiKey = "faa5f51f9706e1650739173b85dc2985";
       const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=Bangalore";
+      const searchBox = document.querySelector(".card-content input");
+      const searchBtn = document.querySelector(".card-content button")
 
       async function checkWeather(city){
         const response =await fetch(apiUrl + `&appid=${apiKey}`);
@@ -48,7 +50,9 @@
         document.querySelector(".wind").innerHTML = data.wind.speed + "km/h"; 
       }
       checkWeather();
-    
+     searchBtn.addEventListener("click", ()=>{
+      checkWeather(searchBox);
+     })
     </script>
   </body>
 </html>
